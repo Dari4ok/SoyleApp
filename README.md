@@ -17,21 +17,26 @@ pip install SoyleApp
 Here's how to use the library:
 
 ```python
-from SoyleApp import SoyleApp 
+from SoyleApp import SoyleApp
 
-# Create an instance of the library
-app = SoyleApp()
+# Create a client with your API token
+translator = SoyleApp("your-api-token")
 
-# Activate the library with your API token
-app.activate("YOUR_API_TOKEN")
-
-# Translate text
-translated_text = app.translate_text(
-    source_language="eng",
-    target_language="kaz",
-    text="Hello, how are you?"
+# Translate text to text
+translated_text = translator.text_translate(
+    source_language="eng", target_language="kaz", text="Hello, world!"
 )
-print("Translated Text:", translated_text)
+print("Translated text:", translated_text)
+
+# Translate text to audio
+audio_base16 = translator.audio_translate(
+    source_language="eng", target_language="kaz", text="Hello, world!", voice="female"
+)
+
+# Save the audio to a file
+with open("output_audio.wav", "wb") as audio_file:
+    audio_file.write(bytes.fromhex(audio_base16))
+print("Audio saved as output_audio.wav")
 
 ```
 
