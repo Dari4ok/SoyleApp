@@ -4,6 +4,7 @@ SoyleApp is a Python library for interacting with the Soyle Translation API, ava
 
 ## Features
 - Translate text between multiple languages.
+- Convert text into audio with options for male or female voice.
 
 ## Installation
 Once the library is published, install it via pip:
